@@ -3,7 +3,7 @@ services:
     image: victoriametrics/victoria-metrics:v1.136.0
     container_name: gt-victoriametrics
     ports:
-      - "127.0.0.1:8428:8428"
+      - "8428:8428"
     volumes:
       - vm-data:/storage
     command:
@@ -16,7 +16,7 @@ services:
     image: victoriametrics/victoria-logs:v1.45.0
     container_name: gt-victorialogs
     ports:
-      - "127.0.0.1:9428:9428"
+      - "9428:9428"
     volumes:
       - vl-data:/vlogs-storage
     command:
@@ -28,7 +28,7 @@ services:
     image: grafana/grafana:12.3.3
     container_name: gt-grafana
     ports:
-      - "127.0.0.1:9429:3000"
+      - "9429:3000"
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin  # dev-only stack — change before any shared/remote deployment
